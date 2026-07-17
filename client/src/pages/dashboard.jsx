@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import DashboardCard from "../components/DashboardCard";
+import DashboardCard from "../components/dashboardcard";
 import DashboardChart from "../components/dashboardchart";
 import { getDashboardData } from "../services/dashboard.service";
 import toast from "react-hot-toast";
