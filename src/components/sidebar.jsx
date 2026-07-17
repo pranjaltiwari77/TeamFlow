@@ -7,7 +7,7 @@ function Sidebar() {
 
 <div className="flex items-center gap-3">
 <img
-  src="/vite.svg"
+  src={logo}
   alt="Vite"
   className="w-10 h-10 border border-red-500"
 />
