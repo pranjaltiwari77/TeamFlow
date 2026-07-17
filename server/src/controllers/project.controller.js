@@ -11,15 +11,17 @@ export const createProject = async (req, res) => {
       members,
     } = req.body;
 
-    const project = await Project.create({
-      name,
-      description,
-      status,
-      startDate,
-      dueDate,
-      members,
-      createdBy: req.user._id,
-    });
+    const membersList = [...new Set([...(members || []), req.user._id.toString()])];
+
+const project = await Project.create({
+  name,
+  description,
+  status,
+  startDate,
+  dueDate,
+  members: membersList,
+  createdBy: req.user._id,
+});
 
     res.status(201).json({
       success: true,

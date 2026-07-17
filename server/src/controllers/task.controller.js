@@ -55,6 +55,13 @@ export const createTask = async (req, res) => {
         dueDate,
         createdBy: req.user._id,
       });
+      await logActivity(
+        task._id,
+        req.user._id,
+        "Task Created",
+        "",
+        task.title
+      );
   
       res.status(201).json({
         success: true,
@@ -134,6 +141,7 @@ export const getTasks = async (req, res) => {
   
     }
   };
+  
 export const updateTask = async (req, res) => {
     try {
       const task = await Task.findByIdAndUpdate(
@@ -162,6 +170,13 @@ export const updateTask = async (req, res) => {
           message: "You can update only your assigned tasks",
         });
       }
+      await logActivity(
+        task._id,
+        req.user._id,
+        "Task Updated",
+        oldTitle,
+        task.title
+      );
   
       res.status(200).json({
         success: true,
@@ -195,6 +210,13 @@ export const updateTask = async (req, res) => {
         success: true,
         message: "Task deleted successfully",
       });
+      await logActivity(
+        task._id,
+        req.user._id,
+        "Task Deleted",
+        task.title,
+        ""
+      );
   
     } catch (error) {
   
