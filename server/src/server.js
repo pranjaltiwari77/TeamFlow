@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://teamflow-pghd1tp3q-pranjaltiwari77s-projects.vercel.app"
+    "https://teamflow-9c7wf4ncs-pranjaltiwari77s-projects.vercel.app/login"
   ];
   
   app.use(cors({
