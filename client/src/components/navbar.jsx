@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../features/auth/authslice";
 import { useNavigate } from "react-router-dom";
 
-const dispatch = useDispatch();
-const navigate = useNavigate();
+
 
 
 const handleLogout = () => {
@@ -18,6 +17,8 @@ const handleLogout = () => {
 
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <header className="bg-white shadow px-6 py-4 flex justify-between">
