@@ -1,4 +1,20 @@
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/auth/authslice";
+import { useNavigate } from "react-router-dom";
+
+const dispatch = useDispatch();
+const navigate = useNavigate();
+
+
+const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(logout());
+    navigate("/login");
+};
+<button onClick={handleLogout}>
+    Logout
+</button>
 
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
